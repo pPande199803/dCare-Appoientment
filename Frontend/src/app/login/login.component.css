@@ -1,0 +1,163 @@
+.container-fluid {
+    position: relative;
+    /* background-image: linear-gradient(to right, rgba(104, 90, 90, 0), rgb(255, 238, 238)); */
+    /* width: 100vw; */
+    height: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* opacity: 0.5; */
+  }
+  
+  /* login card  */
+  
+  .tag-line h1 {
+    font-size: 65px;
+    text-align: center;
+    margin-top: 100px;
+    line-height: 10px;
+    /* opacity: 1.5; */
+    background: transparent;
+    font-weight: bold;
+    color: red;
+    text-shadow: 1px 12px 25px brown;
+  }
+  
+  @media screen and (max-width: 630px) {
+    .tag-line h1 {
+      font-size: 50px;
+      line-height: 40px;
+      margin-top: 30px;
+    }
+  
+    .loginForm {
+      width: none;
+    }
+  }
+  
+  card {
+    background: transparent;
+  }
+  
+  .loginForm {
+    border: 1px solid gray;
+    padding: 30px;
+    max-width: 600px;
+    border-radius: 10px;
+    margin-top: 80px;
+    margin-bottom: 155px;
+  }
+  
+  .loginForm h4 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+  }
+  
+  .loginForm .form-control {
+    background: transparent;
+    box-shadow: none;
+    color: black;
+    font-size: 18px;
+    border: 2px solid rgb(0, 0, 0);
+  }
+
+  .form-check input{
+    /* background: transparent; */
+    box-shadow: none;
+    color: black;
+    font-size: 18px;
+    border: 2px solid rgb(0, 0, 0);
+  }
+  
+  .create-account {
+    text-align: end;
+  }
+  
+  
+  
+  /* register form  */
+  
+  
+  .tag-line h1 {
+    font-size: 65px;
+    text-align: center;
+    margin-top: 100px;
+    line-height: 10px;
+    /* opacity: 1.5; */
+    background: transparent;
+    font-weight: bold;
+    color: red;
+    text-shadow: 1px 12px 25px brown;
+  }
+  
+  @media screen and (max-width: 630px) {
+    .tag-line h1 {
+      font-size: 25px;
+      line-height: 40px;
+      margin-top: 30px;
+    }
+  
+    .registerForm {
+      width: none;
+    }
+  }
+
+  @media screen and (max-width: 1230px) {
+    .tag-line h1 {
+      font-size: 40px;
+      line-height: 40px;
+      margin-top: 70px;
+    }
+  }
+  
+  card {
+    background: transparent;
+  }
+  
+  .registerForm {
+    border: 1px solid gray;
+    padding: 30px;
+    max-width: 600px;
+    border-radius: 10px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+  }
+  
+  .registerForm h4 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+  }
+  
+  .registerForm .form-control {
+    background: transparent;
+    box-shadow: none;
+    color: black;
+    font-size: 18px;
+    border: 2px solid rgb(0, 0, 0);
+  }
+  
+  .create-account {
+    text-align: end;
+  }
+  
+  
+  .create-account a{
+    color: rgb(33, 33, 189);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .create-account a:hover{
+    color: rgb(0, 0, 255);
+  }
+  
+  .check-role{
+    text-align: center;
+  }
+  
+  .loginForm .form-control.ng-invalid.ng-touched{
+    border-color: red;
+  }
+  .registerForm .form-control.ng-invalid.ng-touched{
+    border-color: red;
+  }

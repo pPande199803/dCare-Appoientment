@@ -1,0 +1,59 @@
+<div class="container-fluid mt-4">
+  <div class="card">
+      <div class="card-body">
+
+          <h1><i class="fa fa-list"></i>  Appointment</h1>
+          <hr>
+
+          <div class="sort">
+            <input type="text" class="form-control" placeholder="Search By Name..." (input)="searchByName(search)" #search>
+            <a class="btn btn-dark" (click)="getAllAppoientment()">All</a>
+            <!-- <a class="btn btn-dark" (click)="todayAppoient()">Todays Appointment</a> -->
+          <a class="btn btn-dark" (click)="passedAppoient()">Past Appoientment</a>
+          <!-- <a class="btn btn-dark" (click)="passedAppoient()">Past Appoientment</a> -->
+          </div>
+
+          <div class="container mt-4" *ngIf="appoientmentData?.length > 0">
+              <div class="table-responsive">
+              <table class="table table-bordered">
+                  <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">User Name</th>
+                        <th scope="col">Mobile</th>
+                        <th scope="col">Doctor Name</th>
+                        <th scope="col">Check Type</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let data of appoientmentData; let i = index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{data.userName}}</td>
+                        <td>{{data.mobile}}</td>
+                        <td>{{data.doctorId}}</td>
+                        <td>{{data.checkType }}</td>
+                        <td class="status">{{data.status | uppercase}}</td>
+                        <td>
+                          <button class="btn btn-primary"  (click)="updateStatus(data._id, data)" *ngIf="data.status !=='approved' && data.status !=='done'&& data.status !=='cancel' && data.status !=='checkup Done' ">Approved</button> &nbsp;
+                          <button class="btn btn-primary" (click)="updateStatus(data._id, data)" *ngIf="data.status =='approved' && data.status !=='done'&& data.status !=='cancel' && data.status !=='checkup Done'  ">Done</button> &nbsp;
+                          <button class="btn btn-success" (click)="passData(data, data._id)" *ngIf="data.status !=='approved'&& data.status !=='pending'&& data.status !=='cancel' && data.status !=='checkup Done' ">Check-Up Done</button>&nbsp;
+                          <button class="btn btn-danger" (click)="cancelStatus(data._id,data)" *ngIf="data.status !=='cancel'&& data.status !=='checkup Done'">Cancel</button> &nbsp;
+                          <button class="btn btn-danger" (click)="cancelData(data._id)" *ngIf="data.status !=='approved'&& data.status !=='pending' && data.status !=='done'&& data.status !=='checkup Done' && data.status =='cancel'">Delete</button>
+                          <button class="btn btn-danger" (click)="deleteDataUser(data._id)" *ngIf="data.status !=='approved'&& data.status !=='pending' && data.status !=='done'&& data.status =='checkup Done'">Pass Data Delete</button>
+                        </td>
+                      </tr>
+                    
+                    </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div class="container mt-5" *ngIf="appoientmentData?.length == 0">
+            <h4>No Data Is Added</h4>
+        </div>
+      </div>
+  </div>
+</div>
+

@@ -1,0 +1,33 @@
+<div class="container-fluid mt-4">
+  <div class="card outer-card">
+    <div class="card-body outer-card-body">
+
+      <h1><i class="fa fa-home"></i> Home Page</h1>
+
+      <hr>
+      <div class="display-card" *ngFor="let doctor of doctorData">
+        <div class="card inner-card border-secondary mb-3" style="max-width: 24rem;" >
+          <div class="card-header"><strong> Dr. {{doctor.firstName}} {{doctor.lastName}}</strong>
+           
+              <i class=" trash fa fa-trash" (click)="deleteDoctor(doctor._id)"></i>
+          </div>
+          <div class="card-body text-secondary">
+            <h5 class="card-title">Specialization : <span>{{doctor.specification}}</span></h5>
+            <h5 class="card-title">Experience : <span>{{doctor.experience}} (Years)</span></h5>
+            <h5 class="card-title">Fees Per Cunsaltation : <span>{{doctor.fees | currency:'INR'}}</span> </h5>
+            <h5 class="card-title">Timing : <span>{{doctor.timeIn}} - {{doctor.timeOut}}</span></h5>
+            <a class="btn btn-outline-dark " routerLink="/doctor/appointment"
+              (click)="bookId(doctor._id)">View
+              Appointment</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="spinner-border text-danger" role="status" *ngIf="doctorData?.length == 0">
+  <span class="visually-hidden">Loading...</span>
+</div>

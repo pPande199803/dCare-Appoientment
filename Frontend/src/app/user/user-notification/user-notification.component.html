@@ -1,0 +1,51 @@
+
+<div class="container-fluid ">
+    <div class="card">
+        <div class="card-body">
+
+            <h1><i class="fa fa-list"></i>  Notification</h1>
+            <div class="main" (click)="getAllNotification()">
+                <div class="reload"><i class="fa fa-rotate-right mt-2"></i>&nbsp;Reload</div>
+            </div>
+            <hr>
+
+            <div class="main" *ngIf="getnotifi?.length > 0">
+                <div class="container mt-2" *ngFor="let data of getnotifi">
+                    <div class="alert alert-danger mt-2" role="alert" *ngIf="data.status == 'pending'">
+                        <h6>{{data.currentDate | date}}</h6>
+                       <a>{{data.userName}}</a> Notification Request Send Successfully..! to <a>{{data.doctorId}}</a>
+                      </div>
+                </div>
+                <div class="container mt-2" *ngFor="let data of getnotifi">
+                    <div class="alert alert-success mt-2" role="alert" *ngIf="data.status == 'approved'">
+                        <h6>{{data.currentDate | date}}</h6>
+                       <a>{{data.userName}}</a> Notification Request Approved Successfully..! to <a>{{data.doctorId}}</a>
+                       <p><strong>AppoientMent Timing</strong> : <strong>11:00am to 1:00pm</strong></p>
+                      </div>
+                </div>
+                <div class="container mt-2" *ngFor="let data of getnotifi">
+                    <div class="alert alert-dark mt-2" role="alert" *ngIf="data.status == 'done'">
+                        <h6>{{data.currentDate | date}}</h6>
+                       <a>{{data.userName}}</a> Notification Request Done Successfully..! to <a>{{data.doctorId}}</a>
+                      </div>
+                </div>
+                <div class="container mt-2" *ngFor="let data of getnotifi">
+                    <div class="alert alert-warning mt-2" role="alert" *ngIf="data.status == 'cancel'">
+                        <h6>{{data.currentDate | date}}</h6>
+                       <a>{{data.userName}}</a> Notification Request Cancel..! <br>
+                       Doctor is not avalible today.... to <a>{{data.doctorId}}</a>
+                      </div>
+                </div>
+            </div>
+
+
+
+            
+            <div class="main" *ngIf="getnotifi?.length == 0">
+                <h4>No Notification Can Found</h4>
+            </div>
+
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,73 @@
+<nav class="navbar top-nav">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">🩺 ÐČare Appointment Application</a>
+    <!-- <form class="d-flex">
+      <p><i class="fa fa-phone"></i><strong>+91-09876543219</strong></p>
+    </form> -->
+    <form class="d-flex" *ngIf="router.url !=='/login' && router.url!=='/page-not-found'">
+      <img src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png" alt="" width="40px" height="40px" class="mt-1">
+      <p>Hello, {{name}} <span class="badge bg-secondary bg-danger">{{role}}</span></p>
+      <!-- <button type="button" class="btn btn-outline-danger">logout</button> -->
+    </form>
+  </div>
+</nav>
+
+
+
+<!-- lower nav bar -->
+<nav class="navbar navbar-expand-lg bottom-nav" *ngIf="router.url !=='/login' && router.url!=='/page-not-found'">
+  <div class="container-fluid">
+    <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <!-- <div class="collapse navbar-collapse" id="navbarNav"> -->
+    <ul class="navbar-nav">
+      <li class="nav-item" *ngIf="router.url !=='/doctor' && router.url !=='/doctor/appointment' && router.url !=='/doctor/add-doctor'&& router.url !=='/doctor/doctor-notification' ">
+        <a class="nav-link" aria-current="page" routerLink="/user" routerLinkActive="active"
+          [routerLinkActiveOptions]={exact:true}>Home</a>
+      </li>
+      <li class="nav-item" *ngIf="router.url !=='/user' && router.url !=='/user/user-appointment' && router.url !=='/user/user-notification'">
+        <a class="nav-link" aria-current="page" routerLink="/doctor" routerLinkActive="active"
+          [routerLinkActiveOptions]={exact:true}>Home</a>
+        </li>
+      <li class="nav-item" *ngIf="router.url !=='/doctor' && router.url !=='/doctor/appointment' && router.url !=='/doctor/add-doctor'&& router.url !=='/doctor/doctor-notification' ">
+        <a class="nav-link" routerLink="/user/user-appointment" routerLinkActive="active">Appointment</a>
+      </li>
+      <li class="nav-item" *ngIf="router.url !=='/user' && router.url !=='/user/user-appointment' && router.url !=='/user/user-notification'">
+        <a class="nav-link" routerLink="/doctor/appointment" routerLinkActive="active">Appointment</a>
+      </li>
+      <li class="nav-item" *ngIf="router.url !=='/user' && router.url !=='/user/user-appointment' && router.url !=='/user/user-notification'">
+        <a class="nav-link" routerLink="/doctor/add-doctor" routerLinkActive="active">Add Doctor</a>
+        
+      </li>
+
+      <!-- logout -->
+      <!-- notification -->
+      
+      <li class="nav-item" style="cursor: pointer;" *ngIf="router.url !=='/user' && router.url !=='/user/user-appointment'&& router.url !=='/user/user-notification'">
+       <a type="text" class="nav-link  position-relative" routerLink="/doctor/doctor-notification" routerLinkActive="active">
+        Notification
+        <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          {{count}}
+          <span class="visually-hidden">unread messages</span>
+        </span> -->
+      </a>
+      </li>
+
+      <li class="nav-item" style="cursor: pointer;" *ngIf="router.url !=='/doctor' && router.url !=='/doctor/appointment'&& router.url !=='/doctor/add-doctor' && router.url !=='/doctor/doctor-notification'">
+       <a type="text" class="nav-link  position-relative" routerLink="/user/user-notification" routerLinkActive="active">
+        Notification
+        <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          {{count}}
+          <span class="visually-hidden">unread messages</span>
+        </span> -->
+      </a>
+      </li>
+      <li class="nav-item" style="cursor: pointer;">
+        <a class="nav-link" routerLinkActive="active" (click)="logout()">logout</a>
+      </li>
+
+    </ul>
+  </div>
+  <!-- </div> -->
+</nav>

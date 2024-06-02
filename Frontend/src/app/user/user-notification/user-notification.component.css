@@ -1,0 +1,48 @@
+.container-fluid{
+    background-color: rgb(250, 247, 247);
+    padding: 20px;
+
+}
+.header{
+    display: flex;
+    flex-wrap: wrap;
+}
+.card{
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 1px 5px 1px 1px gray;
+}
+.card-body{
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 20px;
+}
+.card-body h1{
+    font-size: 50px;
+    font-weight: bold;
+}
+.card-body h1 i{
+    font-size: 40px;
+}
+
+.modal-body .form-control:focus{
+    box-shadow: none;
+}
+.alert a{
+    font-weight: bold;
+}
+table{
+    text-align: center;
+}
+.main .reload{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 630px) {
+    .card-body h1{
+     font-size: 30px;
+    }
+ }

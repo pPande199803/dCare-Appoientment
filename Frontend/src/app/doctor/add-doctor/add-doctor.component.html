@@ -1,0 +1,150 @@
+<div class="container-fluid mt-4">
+    <div class="card outer-card">
+        <div class="card-body outer-card-body">
+
+            <h1><i class="fa fa-home"></i> Add Doctor</h1>
+
+            <hr>
+            <div class="display-card">
+                <form [formGroup]="addDoctorsInfo">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" (click)="editModeEnable()">&nbsp;
+                        <label class="form-check-label">Enable For Add New Doctor</label>
+                    </div>
+                    <div class="main-form">
+                        <h4>Personal Details</h4>
+                        <div class="row mt-2">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">First Name</label>
+                                    <input type="text" class="form-control" formControlName="firstName"
+                                        [readonly]="!isEdit" required>
+                                    <span class="text-danger" *ngIf="(d['firstName'].touched) && d['firstName'].errors">
+                                        First Name is required
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" formControlName="lastName"
+                                        [readonly]="!isEdit" required>
+                                        <span class="text-danger" *ngIf="(d['lastName'].touched) && d['lastName'].errors">
+                                            last Name is required
+                                        </span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Phone No</label>
+                                    <input type="number" class="form-control" formControlName="mobile"
+                                        [readonly]="!isEdit" required>
+                                        <span class="text-danger" *ngIf="(d['mobile'].touched) && d['mobile'].errors">
+                                            Mobile is required
+                                        </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Email address</label>
+                                    <input type="email" class="form-control" formControlName="email"
+                                        [readonly]="!isEdit" required>
+                                        <span class="text-danger" *ngIf="(d['email'].touched) && d['email'].errors">
+                                            Email is required
+                                        </span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Website</label>
+                                    <input type="text" class="form-control" formControlName="website"
+                                        [readonly]="!isEdit" required>
+                                        <span class="text-danger" *ngIf="(d['website'].touched) && d['website'].errors">
+                                            Website is required
+                                        </span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Address</label>
+                                    <input type="text" class="form-control" formControlName="address"
+                                        [readonly]="!isEdit" required>
+                                        <span class="text-danger" *ngIf="(d['address'].touched) && d['address'].errors">
+                                            Email is required
+                                        </span>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>Professional Details</h4>
+                        <div class="row mt-2">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">specialization </label>
+                                    <input type="email" class="form-control" formControlName="specification"
+                                        [readonly]="!isEdit" required>
+                                        <span class="text-danger" *ngIf="(d['specification'].touched) && d['specification'].errors">
+                                            Specialization is required
+                                        </span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Expirence</label>
+                                    <input type="email" class="form-control" formControlName="experience"
+                                        [readonly]="!isEdit" required>
+                                        <span class="text-danger" *ngIf="(d['experience'].touched) && d['experience'].errors">
+                                            Expirence is required
+                                        </span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Fees For Cunsatation</label>
+                                    <input type="email" class="form-control" formControlName="fees"
+                                        [readonly]="!isEdit" required>
+                                        <span class="text-danger" *ngIf="(d['fees'].touched) && d['fees'].errors">
+                                            Fees is required
+                                        </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Timing IN:</label>
+                                    <input type="time" class="form-control" formControlName="timeIn"
+                                        [readonly]="!isEdit" required>
+                                        <span class="text-danger" *ngIf="(d['timeIn'].touched) && d['timeIn'].errors">
+                                            TimeIn is required
+                                        </span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Timing OUT:</label>
+                                    <input type="time" class="form-control" formControlName="timeOut"
+                                        [readonly]="!isEdit" required>
+                                        <span class="text-danger" *ngIf="(d['timeOut'].touched) && d['timeOut'].errors">
+                                            Time Out is required
+                                        </span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Open On</label>
+                                    <input type="email" class="form-control" value="Monday to Saturday" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button class="btn btn-primary me-md-2" type="button" *ngIf="isEdit"
+                                [disabled]="!addDoctorsInfo.valid" (click)="submitData()">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

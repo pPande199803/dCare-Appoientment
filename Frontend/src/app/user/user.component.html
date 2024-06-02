@@ -1,0 +1,179 @@
+<!-- <div class="container-fluid mt-4">
+  <div class="card outer-card">
+    <div class="card-body outer-card-body">
+
+      <h1><i class="fa fa-home"></i> Home Page</h1>
+
+      <hr>
+      <div class="display-card">
+        <div class="card inner-card border-secondary mb-3" style="max-width: 24rem;" *ngFor="let doctor of doctorData">
+          <div class="card-header">{{doctor.firstName}} {{doctor.lastName}}</div>
+          <div class="card-body text-secondary">
+            <h5 class="card-title">Specialization : <span>{{doctor.specification}}</span></h5>
+            <h5 class="card-title">Experience : <span>{{doctor.experience}} (Years)</span></h5>
+            <h5 class="card-title">Fees Per Cunsaltation : <span>{{doctor.fees | currency:'INR'}}</span> </h5>
+            <h5 class="card-title">Timing : <span>{{doctor.timeIn}} - {{doctor.timeOut}}</span></h5>
+            <a href="#" class="btn btn-outline-dark " data-bs-toggle="modal" data-bs-target="#exampleModal"
+              (click)="bookId(doctor._id)">Book
+              Appointment</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+<div class="container-fluid mt-4">
+  <div class="card outer-card">
+    <div class="card-body outer-card-body">
+
+      <h1><i class="fa fa-home"></i> Home Page</h1>
+
+      <hr>
+      <div class="display-card" *ngFor="let doctor of doctorData">
+        <div class="card inner-card border-secondary mb-3" style="max-width: 24rem;" >
+          <div class="card-header"><strong> Dr. {{doctor.firstName}} {{doctor.lastName}}</strong></div>
+          <div class="card-body text-secondary">
+            <h5 class="card-title">Specialization : <span>{{doctor.specification}}</span></h5>
+            <h5 class="card-title">Experience : <span>{{doctor.experience}} (Years)</span></h5>
+            <h5 class="card-title">Fees Per Cunsaltation : <span>{{doctor.fees | currency:'INR'}}</span> </h5>
+            <h5 class="card-title">Timing : <span>{{doctor.timeIn}} - {{doctor.timeOut}}</span></h5>
+            <a href="#" class="btn btn-outline-dark " data-bs-toggle="modal" data-bs-target="#exampleModal"
+            (click)="bookId(doctor._id)">Book
+            Appointment</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- modal  -->
+
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Appointment Booking Form</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="appoientmentBookingForm">
+
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label">User Name</label>
+                <input type="email" class="form-control" placeholder="Enter your name here..."
+                  formControlName="userName" required>
+                  <span class="text-danger"
+                  *ngIf="(r['userName'].touched) && r['userName'].errors">
+                  User Name is required
+              </span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label">Mobile Number</label>
+                <input type="text" class="form-control" placeholder="Enter your mobile here..."
+                  formControlName="mobile" maxlength="10" minlength="10" required>
+                  <span class="text-danger"
+                  *ngIf="(r['mobile'].touched) && r['mobile'].errors">
+                  Mobile is required
+              </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label">Age</label>
+                <input type="text" class="form-control" placeholder="Enter your age...." 
+                maxlength="2" minlength="2" formControlName="age" required>
+                <span class="text-danger"
+                *ngIf="(r['age'].touched) && r['age'].errors">
+                Age is required
+            </span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label">Weigth</label>
+                <input type="texr" class="form-control" placeholder="Enter your weight here.."
+                  formControlName="weight"  maxlength="3" minlength="2" required>
+                  <span class="text-danger"
+                *ngIf="(r['weight'].touched) && r['weight'].errors">
+                Weight is required
+            </span>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label">Address</label>
+                <input type="email" class="form-control" placeholder="Enter your weight here.."
+                  formControlName="address" required>
+                  <span class="text-danger"
+                  *ngIf="(r['address'].touched) && r['address'].errors">
+                  Address is required
+              </span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label">Select Type</label>
+                <select class="form-select" aria-label="Default select example" formControlName="checkType" required>
+                  <!-- <option selected>Open this select menu</option> -->
+                  <option value="Regular CheckUp">Regular CheckUp</option>
+                  <option value="New Paient">New Paient</option>
+                </select>
+                <span class="text-danger"
+                *ngIf="(r['checkType'].touched) && r['checkType'].errors">
+                Check Type is required
+            </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label">Date & Time</label>
+                <input type="text" class="form-control" placeholder="" formControlName="currentDate"
+                  [value]="currentDate">
+              </div>
+            </div> -->
+            <div class="col-md-6">
+              <!-- <div class="mb-3">
+  <label class="form-label">Status</label>
+  <input type="text" class="form-control" placeholder=""
+  formControlName="status">
+</div> -->
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close">Close</button>
+        <button type="button" class="btn btn-warning" (click)="confirm()" [disabled]="appoientmentBookingForm.invalid">Conform Appointment</button>
+      </div>
+    </div>
+  </div>
+</div>

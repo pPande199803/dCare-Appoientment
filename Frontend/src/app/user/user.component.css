@@ -1,0 +1,70 @@
+.container-fluid{
+    background-color: rgb(250, 247, 247);
+    padding: 20px;
+
+}
+.header{
+    display: flex;
+    flex-wrap: wrap;
+}
+.outer-card{
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 1px 5px 1px 1px gray;
+}
+.outer-card-body{
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 20px;
+}
+.outer-card-body h1{
+    font-size: 50px;
+    font-weight: bold;
+}
+.outer-card-body h1 i{
+    font-size: 40px;
+}
+
+.modal-body .form-control:focus{
+    box-shadow: none;
+}
+.card-title{
+    line-height: 50px;
+}
+.display-card{
+    display: inline-flex;
+    justify-content: space-between;
+    margin: 10px 50px;
+    align-items: center;
+    place-items: center;
+
+}
+.display-card a{
+    float: right;
+}
+
+.inner-card{
+    border-radius: 10px;
+    box-shadow: 1px 5px 1px 1px gray;
+}
+.card-header{
+    font-size: 18px;
+}
+/* @media screen and (max-width: 550px){
+    .display-card{
+        display: block;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+} */
+
+  @media screen and (max-width: 630px) {
+    .card-body h1{
+     font-size: 30px;
+    }
+ }
+
+ .modal-body input.ng-invalid.ng-touched{
+    border-color: red;
+  }

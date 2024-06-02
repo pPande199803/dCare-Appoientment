@@ -1,0 +1,44 @@
+<div class="container-fluid ">
+    <div class="card">
+        <div class="card-body">
+
+            <h1><i class="fa fa-list"></i>  Notification</h1>
+            <div class="main" (click)="getAllNotification()">
+                <div class="reload"><i class="fa fa-rotate-right mt-2"></i>&nbsp;Reload</div>
+            </div>
+            <hr>
+
+           <div class="container mt-2" *ngIf="getPendingNoti?.length>0">
+            <div class="container mt-2" *ngIf="status =='pending'">
+                <div class="alert alert-danger mt-2" role="alert" *ngFor="let data of getPendingNoti">
+                    <h6>{{data.currentDate | date}}</h6>
+                   <a>{{data.userName}}</a> New Request Has Been Fatch..! to <a>{{data.doctorId}}</a>
+                   <div class="button">
+                    <button class="btn btn-success" (click)="updateStatus(data._id, data)"  title="Approved"><i class="fa fa-check"></i></button>&nbsp;
+                    <button class="btn btn-danger"  (click)="cancelAppoientment(data._id, data)" title="Cencel"><i class="fa fa-close"></i></button>
+                   </div>
+                  </div>
+                  
+            </div>
+
+
+            <div class="main" *ngIf="getPendingNoti?.length == 0">
+                <h4>No Notification Can Found</h4>
+            </div>
+           </div>
+
+            <!-- <div class="container mt-2" *ngIf="status =='approved'">
+                <div class="alert alert-success mt-2" role="alert" *ngFor="let data of getPendingNoti">
+                    <h6>{{data.currentDate | date}}</h6>
+                   {{data.userName}} Your AppoientMent Is Successfully Conform..! to {{data.doctorId}}
+                   <h4>AppoientMent Timing in Between : 12:00 pm  to 2:00 pm</h4>
+                   <div class="button">
+                    <button class="btn btn-success" title="Approved"><i class="fa fa-check"></i></button>&nbsp;
+                    <button class="btn btn-danger"  title="Cencel"><i class="fa fa-close"></i></button>
+                   </div>
+                  </div>
+                  
+            </div> -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+.button{
+    display: flex;
+    justify-content: flex-end;
+}
+.sort{
+    display: flex;
+    justify-content: flex-end; 
+    gap: 20px; 
+}
+.alert a{
+    font-weight: bold;
+}
+table{
+    text-align: center;
+}
+.main .reload{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 630px) {
+    .card-body h1{
+     font-size: 30px;
+    }
+ }

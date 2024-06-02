@@ -1,0 +1,58 @@
+<div class="container-fluid mt-4">
+    <div class="card">
+        <div class="card-body">
+
+            <h1><i class="fa fa-list"></i>  Appointment</h1>
+            <hr>
+
+            <div class="container" *ngIf="appoientmentData?.length > 0">
+                <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">User Name</th>
+                          <th scope="col">Mobile</th>
+                          <th scope="col">Doctor Name</th>
+                          <th scope="col">App Date</th>
+                          <th scope="col">Check Type</th>
+                          <th scope="col">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let data of appoientmentData; let i = index">
+                          <th scope="row">{{i+1}}</th>
+                          <td>{{data.userName}}</td>
+                          <td>{{data.mobile}}</td>
+                          <td>{{data.doctorId}}</td>
+                          <td>{{data.currentDate |date}}</td>
+                          <td>{{data.checkType}}</td>
+                          <td class="status">{{data.status | uppercase}}</td>
+                        </tr>
+                      
+                      </tbody>
+                </table>
+              </div>
+            </div>
+
+              <div class="container mt-5" *ngIf="appoientmentData?.length == 0">
+                <h4>No Data Is Added</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="container-fluid mt-4">
+  <div class="card">
+      <div class="card-body">
+
+          <h1><i class="fa fa-list"></i>  Appointment</h1>
+          <hr>
+
+          <h1 *ngIf="appoientmentData.length == 0">No Data Is Added</h1>
+          
+      </div>
+  </div>
+</div> -->
+
